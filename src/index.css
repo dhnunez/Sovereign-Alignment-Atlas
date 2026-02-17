@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #060a16;
+  --color-navy-900: #0a1025;
+  --color-navy-800: #0f1a3a;
+  --color-navy-700: #162044;
+  --color-navy-600: #1e2d5a;
+  --color-navy-500: #2a3f78;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  --color-risk-low: #22c55e;
+  --color-risk-medium: #eab308;
+  --color-risk-high: #ef4444;
+  --color-risk-critical: #dc2626;
+  --color-champion-red: #f87171;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-navy-950 text-gray-100 antialiased;
+    font-family: var(--font-body);
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  code, .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-navy-900 border border-navy-700 rounded-lg p-4;
+  }
+
+  .card-hover {
+    @apply bg-navy-900 border border-navy-700 rounded-lg p-4 transition-all duration-200;
+  }
+  .card-hover:hover {
+    @apply border-cyan-400/30 shadow-lg;
+  }
+
+  .btn-primary {
+    @apply bg-cyan-400 text-navy-950 px-4 py-2 rounded-md font-medium text-sm cursor-pointer;
+  }
+  .btn-primary:hover {
+    @apply bg-cyan-500;
+  }
+
+  .btn-secondary {
+    @apply bg-navy-700 text-gray-200 px-4 py-2 rounded-md font-medium border border-navy-600 text-sm cursor-pointer;
+  }
+  .btn-secondary:hover {
+    @apply bg-navy-600;
+  }
+
+  .btn-danger {
+    @apply bg-red-600/20 text-red-400 px-4 py-2 rounded-md font-medium border border-red-600/30 text-sm cursor-pointer;
+  }
+  .btn-danger:hover {
+    @apply bg-red-600/30;
+  }
+
+  .input-field {
+    @apply bg-navy-800 border border-navy-600 rounded-md px-3 py-2 text-gray-100 placeholder-gray-500 text-sm;
+  }
+  .input-field:focus {
+    @apply outline-none border-cyan-400 ring-1 ring-cyan-400/30;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+
+  .badge-cyan {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-cyan-400/10 text-cyan-400 border border-cyan-400/20;
+  }
+
+  .badge-red {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-400/10 text-red-400 border border-red-400/20;
+  }
+
+  .table-header {
+    @apply text-xs font-medium text-gray-400 uppercase tracking-wider px-4 py-3 text-left;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 text-sm text-gray-300;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1025;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2d5a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3f78;
+}
