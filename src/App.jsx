@@ -3,6 +3,8 @@ import { useAuth } from './lib/AuthContext'
 import LoadingSpinner from './components/ui/LoadingSpinner'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
+import RiskDashboardPage from './pages/RiskDashboardPage'
+import RiskDetailPage from './pages/RiskDetailPage'
 import SWFListPage from './pages/SWFListPage'
 import SWFProfilePage from './pages/SWFProfilePage'
 import ChampionsListPage from './pages/ChampionsListPage'
@@ -35,6 +37,8 @@ export default function App() {
     <Routes>
       <Route path="/login" element={session ? <Navigate to="/" replace /> : <LoginPage />} />
       <Route path="/" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+      <Route path="/risk" element={<ProtectedRoute><RiskDashboardPage /></ProtectedRoute>} />
+      <Route path="/risk/:slug" element={<ProtectedRoute><RiskDetailPage /></ProtectedRoute>} />
       <Route path="/swf" element={<ProtectedRoute><SWFListPage /></ProtectedRoute>} />
       <Route path="/swf/:id" element={<ProtectedRoute><SWFProfilePage /></ProtectedRoute>} />
       <Route path="/champions" element={<ProtectedRoute><ChampionsListPage /></ProtectedRoute>} />

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const navItems = [
   { path: '/', label: 'Dashboard', icon: 'grid' },
+  { path: '/risk', label: 'Risk Dashboard', icon: 'activity' },
   { path: '/swf', label: 'Sovereign Wealth Funds', icon: 'landmark' },
   { path: '/champions', label: 'National Champions', icon: 'trophy' },
   { path: '/network', label: 'Network Graph', icon: 'network' },
@@ -16,6 +17,7 @@ function NavIcon({ name, size = 18 }) {
   const props = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round' }
   switch (name) {
     case 'grid': return <svg {...props}><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    case 'activity': return <svg {...props}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
     case 'landmark': return <svg {...props}><rect x="3" y="10" width="4" height="10"/><rect x="10" y="6" width="4" height="14"/><rect x="17" y="10" width="4" height="10"/><path d="M2 20h20"/><path d="M12 2L2 8h20L12 2z"/></svg>
     case 'trophy': return <svg {...props}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C5.3 4 6 4.7 6 5.5V9"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C18.7 4 18 4.7 18 5.5V9"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
     case 'network': return <svg {...props}><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 7l3 9M17 7l-3 9"/><path d="M7 6h10"/></svg>

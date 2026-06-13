@@ -65,6 +65,7 @@ export const REGIONS = {
 
 export const NAV_ITEMS = [
   { path: '/', label: 'Dashboard', icon: 'grid' },
+  { path: '/risk', label: 'Risk Dashboard', icon: 'activity' },
   { path: '/swf', label: 'Sovereign Wealth Funds', icon: 'landmark' },
   { path: '/champions', label: 'National Champions', icon: 'trophy' },
   { path: '/network', label: 'Network Graph', icon: 'share2' },

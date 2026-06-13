@@ -135,7 +135,39 @@ Each phase ships independently; Phase 1 alone already retires the biggest pain p
 
 ---
 
-## 5. Risks & open questions
+## 5. Working prototype (Phase 1)
+
+A working prototype of the live dashboard ships in this repo, built on the
+existing React/Vite/Tailwind stack with **no new dependencies** (charts are
+hand-built SVG). It runs on the demo data path — open the app and select
+**Risk Dashboard** in the sidebar (`/risk`).
+
+What it demonstrates:
+
+- **Overview** — KPI cards (global indicator, 30-day change, biggest mover,
+  high-likelihood count) and an interactive global-indicator chart with
+  1M/6M/1Y/5Y windows, hover tooltips, and annotated "what moved the line"
+  event markers.
+- **Top-risks table** — the BGRI-style top-10, sortable by likelihood,
+  attention score, or 30-day change, each row with a likelihood badge, current
+  score, a delta arrow, and a 90-day sparkline.
+- **Risk detail** (`/risk/:slug`) — per-risk attention history charted against
+  its 5-year average, score-vs-baseline KPIs, the versioned narrative sections
+  (summary / developments / implications), and a feed of the source documents
+  driving the score.
+
+Code map:
+
+| File | Role |
+| --- | --- |
+| `src/lib/riskData.js` | Demo dataset: 10 risks, deterministic 5-year daily score series, composite global indicator, narratives, drivers. Stands in for the scoring pipeline + CMS. |
+| `src/hooks/useRiskData.js` | Hook-shaped data access — the seam where a real API swaps in. |
+| `src/components/charts/TimeSeriesChart.jsx`, `Sparkline.jsx` | Dependency-free SVG charts. |
+| `src/pages/RiskDashboardPage.jsx`, `RiskDetailPage.jsx` | The two views. |
+
+All numbers are illustrative demo data, not the real BGRI series.
+
+## 6. Risks & open questions
 
 1. **Compliance/review workflow** — the current PDF passes through editorial and legal review per issue. The proposal moves that gate into the CMS (per-change approval) for editorial content, while quantitative scores publish automatically. Needs sign-off from the publication owners.
 2. **Data licensing** — confirm redistribution rights for derived scores via API/embeds (Phase 4 dependency).
